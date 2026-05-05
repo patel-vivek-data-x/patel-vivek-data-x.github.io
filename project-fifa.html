@@ -43,6 +43,11 @@
     .b-low{background:rgba(100,100,100,0.08);color:#7a7060;border:1px solid rgba(100,100,100,.2)}
     .claim p{font-size:.82rem;font-weight:300;color:var(--ink2);line-height:1.85}
 
+    /* ITEM CARDS — recommendations and refused */
+    .item-card{background:#ffffff;border:1px solid var(--rim);padding:1.5rem;margin-bottom:1rem;border-left:3px solid var(--purple)}
+    .item-card-title{font-size:.8rem;font-weight:600;color:var(--ink);margin-bottom:.5rem}
+    .item-card p{font-size:.82rem;font-weight:300;color:var(--ink2);line-height:1.85}
+
     /* VISUALS — white with black border */
     .visuals{display:flex;flex-direction:column;gap:2rem;margin-top:1.5rem}
     .visual{overflow:hidden;border:1px solid #2b2b2b;background:#ffffff}
@@ -167,15 +172,24 @@
         <div class="section-label">Four Recommendations</div>
         <p style="font-size:.78rem;color:var(--muted);margin-bottom:1.4rem;">Four recommendations follow directly from the two confirmed claims. Each is scoped to stakeholders who work within the FIFA rating system domain — not to real-world football operations, which the data cannot support.</p>
 
-        <ul class="flist">
-          <li><strong>Recommendation 1.</strong> FIFA ratings teams should audit the five highest-spread leagues to verify that within-league club rating gaps reflect actual competitive structure rather than rating artifacts. Bundesliga's 22.5-point spread is 68% larger than La Liga's 13.5 despite both being Tier-1 European leagues. If that gap doesn't align with real-world observable disparities, it signals that FIFA's club-level allocation logic is overcalibrating separation in some leagues relative to others.</li>
-
-          <li><strong>Recommendation 2.</strong> Ultimate Team economists building cross-gender card pricing models should apply an explicit calibration offset — approximately 10 points at the median — rather than treating male and female ratings as points on a single scale. The 7–14 point gap is structurally consistent and not explained by positional composition. Ignoring it means pricing models built on raw ratings are comparing populations that weren't designed to be compared directly.</li>
-
-          <li><strong>Recommendation 3.</strong> Esports analysts and content creators producing tier lists or league rankings should segment by archetype before ranking. A league with a moderate median and extreme spread isn't worse than one with a high median and low spread — it's a different structural type. Ranking them on a single axis produces a misleading output. The two-dimensional framework here gives a more honest picture.</li>
-
-          <li><strong>Recommendation 4.</strong> Researchers studying game-based talent models should document the cross-population calibration gap as a reference case. A 7–14 point systematic offset that is consistent across 15 positions, doesn't reverse, and isn't explained by compositional differences is a clean structural finding. It's a useful baseline for anyone investigating how sports simulation systems handle cross-gender modeling.</li>
-        </ul>
+        <div>
+          <div class="item-card">
+            <div class="item-card-title">Recommendation 1</div>
+            <p>FIFA ratings teams should audit the five highest-spread leagues to verify that within-league club rating gaps reflect actual competitive structure rather than rating artifacts. Bundesliga's 22.5-point spread is 68% larger than La Liga's 13.5 despite both being Tier-1 European leagues. If that gap doesn't align with real-world observable disparities, it signals that FIFA's club-level allocation logic is overcalibrating separation in some leagues relative to others.</p>
+          </div>
+          <div class="item-card">
+            <div class="item-card-title">Recommendation 2</div>
+            <p>Ultimate Team economists building cross-gender card pricing models should apply an explicit calibration offset — approximately 10 points at the median — rather than treating male and female ratings as points on a single scale. The 7–14 point gap is structurally consistent and not explained by positional composition. Ignoring it means pricing models built on raw ratings are comparing populations that weren't designed to be compared directly.</p>
+          </div>
+          <div class="item-card">
+            <div class="item-card-title">Recommendation 3</div>
+            <p>Esports analysts and content creators producing tier lists or league rankings should segment by archetype before ranking. A league with a moderate median and extreme spread isn't worse than one with a high median and low spread — it's a different structural type. Ranking them on a single axis produces a misleading output. The two-dimensional framework here gives a more honest picture.</p>
+          </div>
+          <div class="item-card">
+            <div class="item-card-title">Recommendation 4</div>
+            <p>Researchers studying game-based talent models should document the cross-population calibration gap as a reference case. A 7–14 point systematic offset that is consistent across 15 positions, doesn't reverse, and isn't explained by compositional differences is a clean structural finding. It's a useful baseline for anyone investigating how sports simulation systems handle cross-gender modeling.</p>
+          </div>
+        </div>
       </div>
 
       <!-- FORMALLY REFUSED -->
@@ -183,15 +197,24 @@
         <div class="section-label">What Was Formally Refused</div>
         <p>Four recommendations were considered and explicitly declined. Each represents a plausible extension of the confirmed findings — the kind of leap a stakeholder might reasonably request. All four were refused because the data structurally cannot support them. The refusals are documented with the same specificity as the recommendations because knowing where the evidence ends is as important as knowing what it shows.</p>
 
-        <ul class="flist" style="margin-top:1rem;">
-          <li><strong>Real-world scouting prioritization.</strong> Based on the archetype finding, a scouting department might ask whether to prioritize depth-based leagues for talent pipelines or elite-concentration leagues for top-tier acquisitions. That recommendation cannot be made. The archetype distinction describes how FIFA allocates ratings across clubs — not which allocation pattern correlates with real-world player development quality, transfer success rates, or match performance. A low-spread league in FIFA might reflect genuine competitive parity, editorial compression, or policy-driven parity — there's no way to tell from this data. What would be required: player-level scouting outcome data showing that FIFA archetype classification predicts real-world talent yield.</li>
-
-          <li><strong>Squad-building strategy by archetype.</strong> A team analyst might ask whether to build squads differently based on their league's archetype — star-heavy in elite-concentration leagues, balanced in depth-based ones. That recommendation cannot be made. Nothing in this analysis connects archetype classification to optimal squad construction strategy, win rates, or competitive outcomes. The dataset contains no match results, no financial data, and no performance covariates. Archetype is a descriptive label about rating distribution — it doesn't determine how to build a squad.</li>
-
-          <li><strong>Extending the archetype framework to the female population.</strong> It would be natural to ask whether the two-archetype framework applies to the female population as well. It doesn't — not because the framework is wrong, but because 97.31% of female interim rows lack league attribution. The 668-player attributed subset cannot support the kind of league- and club-level aggregation that produced the male archetype finding. Extending the framework to the female population would describe a 2.69% slice and present it as a population-level finding. That's not an extension. It's a misrepresentation.</li>
-
-          <li><strong>Interpreting the gap as rating bias.</strong> The 7–14 point cross-population gap is a consistent, structural finding. It would be tempting to interpret it as evidence that FIFA's rating system is biased — systematically inflating female ratings or deflating male ones. That interpretation cannot be made from this data alone. Without access to EA Sports' intended calibration methodology, we cannot distinguish between an offset that was designed intentionally, one that emerged as a side effect of separate benchmarking processes, and one that represents a genuine methodological error. The finding establishes that a gap exists. It cannot establish what caused it or whether it was intended.</li>
-        </ul>
+        <div style="margin-top:1rem;">
+          <div class="item-card">
+            <div class="item-card-title">Real-world scouting prioritization</div>
+            <p>Based on the archetype finding, a scouting department might ask whether to prioritize depth-based leagues for talent pipelines or elite-concentration leagues for top-tier acquisitions. That recommendation cannot be made. The archetype distinction describes how FIFA allocates ratings across clubs — not which allocation pattern correlates with real-world player development quality, transfer success rates, or match performance. A low-spread league in FIFA might reflect genuine competitive parity, editorial compression, or policy-driven parity — there's no way to tell from this data. What would be required: player-level scouting outcome data showing that FIFA archetype classification predicts real-world talent yield.</p>
+          </div>
+          <div class="item-card">
+            <div class="item-card-title">Squad-building strategy by archetype</div>
+            <p>A team analyst might ask whether to build squads differently based on their league's archetype — star-heavy in elite-concentration leagues, balanced in depth-based ones. That recommendation cannot be made. Nothing in this analysis connects archetype classification to optimal squad construction strategy, win rates, or competitive outcomes. The dataset contains no match results, no financial data, and no performance covariates. Archetype is a descriptive label about rating distribution — it doesn't determine how to build a squad.</p>
+          </div>
+          <div class="item-card">
+            <div class="item-card-title">Extending the archetype framework to the female population</div>
+            <p>It would be natural to ask whether the two-archetype framework applies to the female population as well. It doesn't — not because the framework is wrong, but because 97.31% of female interim rows lack league attribution. The 668-player attributed subset cannot support the kind of league- and club-level aggregation that produced the male archetype finding. Extending the framework to the female population would describe a 2.69% slice and present it as a population-level finding. That's not an extension. It's a misrepresentation.</p>
+          </div>
+          <div class="item-card">
+            <div class="item-card-title">Interpreting the gap as rating bias</div>
+            <p>The 7–14 point cross-population gap is a consistent, structural finding. It would be tempting to interpret it as evidence that FIFA's rating system is biased — systematically inflating female ratings or deflating male ones. That interpretation cannot be made from this data alone. Without access to EA Sports' intended calibration methodology, we cannot distinguish between an offset that was designed intentionally, one that emerged as a side effect of separate benchmarking processes, and one that represents a genuine methodological error. The finding establishes that a gap exists. It cannot establish what caused it or whether it was intended.</p>
+          </div>
+        </div>
       </div>
 
       <!-- TAKEAWAY -->

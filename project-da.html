@@ -49,11 +49,16 @@
     .b-low{background:rgba(100,100,100,0.08);color:#7a7060;border:1px solid rgba(100,100,100,.2)}
     .claim p{font-size:.82rem;font-weight:300;color:var(--ink2);line-height:1.85}
 
+    /* ITEM CARDS — recommendations and refused */
+    .item-card{background:#ffffff;border:1px solid var(--rim);padding:1.5rem;margin-bottom:1rem;border-left:3px solid var(--purple)}
+    .item-card-title{font-size:.8rem;font-weight:600;color:var(--ink);margin-bottom:.5rem}
+    .item-card p{font-size:.82rem;font-weight:300;color:var(--ink2);line-height:1.85}
+
     /* VISUALS — white with black border */
     .visuals{display:flex;flex-direction:column;gap:2rem;margin-top:1.5rem}
     .visual{overflow:hidden;border:1px solid #2b2b2b;background:#ffffff}
     .visual img{width:100%;display:block}
-    .vcap{font-size:.6rem;color:var(--ink);letter-spacing:.08em;padding:.75rem 1rem;border-top:1px solid #2b2b2b;text-transform:uppercase}
+    .vcap{font-size:.6rem;color:var(--muted);letter-spacing:.08em;padding:.75rem 1rem;border-top:1px solid #2b2b2b;text-transform:uppercase}
 
     .flist{list-style:none;display:flex;flex-direction:column;gap:.6rem;margin-top:.5rem}
     .flist li{font-size:.85rem;font-weight:300;color:var(--ink2);padding-left:1.2rem;position:relative;line-height:1.75}
@@ -218,17 +223,28 @@
         <div class="section-label">Five Recommendations</div>
         <p style="font-size:.78rem;color:var(--muted);margin-bottom:1.4rem;">Five recommendations follow directly from the confirmed claims. Each names the action, what authorizes it, and where it runs out. None of them extend beyond what the evidence licenses.</p>
 
-        <ul class="flist">
-          <li><strong>Recommendation 1.</strong> Get Tier 1 solid before touching anything else. SQL, Excel, and Python need to be at a level that holds up in a screening interview — that's the floor, not the differentiator. Once that's covered, add one visualization tool. Tableau or Power BI, either works — both satisfy the BI visualization archetype signal and both appear at comparable frequency in the market. That's the one non-negotiable move above Tier 1. Cloud platforms, Agile, Jira — those are learnable on the job and no employer is screening out an otherwise qualified candidate for their absence at the point of entry. A longer list would contradict what the category framework actually shows.</li>
-
-          <li><strong>Recommendation 2.</strong> Target the general analyst archetype first. It represents nearly half of all postings, the highest volume of any archetype, and the lowest barrier to entry. The specialization lanes — ML adjacent, modern data stack — are real, but they're narrow, they're competitive, and they're better targeted from inside the field once you have domain experience to work with. Getting in matters more than getting in through the right lane. The sequencing question — which archetype, which sector, which Tier 3 skill — is answered better after your first role than before it.</li>
-
-          <li><strong>Recommendation 3.</strong> Salary isn't a single number attached to a job title — it's the product of two independent variables, and most candidates only optimize one of them. Metro is the obvious lever. Industry sector is the less obvious one, and it operates just as powerfully. A candidate who aligns both — high-compensation metro, high-compensation sector — is working two advantages simultaneously. Neither cancels the other out. The compensation data gives you the map. Cost of living, personal constraints, and remote eligibility are yours to factor in.</li>
-
-          <li><strong>Recommendation 4.</strong> Most entry-level postings don't disclose salary — and filtering them out removes most of the market you're actually trying to enter. The right move isn't to avoid non-disclosing postings. It's to enter those conversations knowing that the asymmetry is structural, not adversarial, and that the information gap runs both ways. An employer who hasn't posted a number doesn't know yours either. That's a negotiation, not a disadvantage.</li>
-
-          <li><strong>Recommendation 5.</strong> The window between "employers know they want AI tool literacy" and "employers screen for it" is open right now. At just over 6% of postings, the signal is present but not saturated. Employers are naming the capability in broad terms — generative AI, AI agents — rather than mandating specific platforms, which means the investment isn't learning one tool. It's developing enough fluency with the class of technology to work with it effectively and evaluate its outputs critically. That's a window a candidate can move through before it closes.</li>
-        </ul>
+        <div>
+          <div class="item-card">
+            <div class="item-card-title">Recommendation 1</div>
+            <p>Get Tier 1 solid before touching anything else. SQL, Excel, and Python need to be at a level that holds up in a screening interview — that's the floor, not the differentiator. Once that's covered, add one visualization tool. Tableau or Power BI, either works — both satisfy the BI visualization archetype signal and both appear at comparable frequency in the market. That's the one non-negotiable move above Tier 1. Cloud platforms, Agile, Jira — those are learnable on the job and no employer is screening out an otherwise qualified candidate for their absence at the point of entry. A longer list would contradict what the category framework actually shows.</p>
+          </div>
+          <div class="item-card">
+            <div class="item-card-title">Recommendation 2</div>
+            <p>Target the general analyst archetype first. It represents nearly half of all postings, the highest volume of any archetype, and the lowest barrier to entry. The specialization lanes — ML adjacent, modern data stack — are real, but they're narrow, they're competitive, and they're better targeted from inside the field once you have domain experience to work with. Getting in matters more than getting in through the right lane. The sequencing question — which archetype, which sector, which Tier 3 skill — is answered better after your first role than before it.</p>
+          </div>
+          <div class="item-card">
+            <div class="item-card-title">Recommendation 3</div>
+            <p>Salary isn't a single number attached to a job title — it's the product of two independent variables, and most candidates only optimize one of them. Metro is the obvious lever. Industry sector is the less obvious one, and it operates just as powerfully. A candidate who aligns both — high-compensation metro, high-compensation sector — is working two advantages simultaneously. Neither cancels the other out. The compensation data gives you the map. Cost of living, personal constraints, and remote eligibility are yours to factor in.</p>
+          </div>
+          <div class="item-card">
+            <div class="item-card-title">Recommendation 4</div>
+            <p>Most entry-level postings don't disclose salary — and filtering them out removes most of the market you're actually trying to enter. The right move isn't to avoid non-disclosing postings. It's to enter those conversations knowing that the asymmetry is structural, not adversarial, and that the information gap runs both ways. An employer who hasn't posted a number doesn't know yours either. That's a negotiation, not a disadvantage.</p>
+          </div>
+          <div class="item-card">
+            <div class="item-card-title">Recommendation 5</div>
+            <p>The window between "employers know they want AI tool literacy" and "employers screen for it" is open right now. At just over 6% of postings, the signal is present but not saturated. Employers are naming the capability in broad terms — generative AI, AI agents — rather than mandating specific platforms, which means the investment isn't learning one tool. It's developing enough fluency with the class of technology to work with it effectively and evaluate its outputs critically. That's a window a candidate can move through before it closes.</p>
+          </div>
+        </div>
       </div>
 
       <!-- FORMALLY REFUSED -->
@@ -236,15 +252,24 @@
         <div class="section-label">What Was Formally Refused</div>
         <p>Four recommendations were considered and explicitly declined. Not because the questions aren't worth asking — they are — but because the dataset structurally cannot support a defensible answer to any of them. Each refusal is documented here because knowing what the data can't tell you is as analytically useful as knowing what it can.</p>
 
-        <ul class="flist" style="margin-top:1rem;">
-          <li><strong>Remote targeting.</strong> Remote postings show a median salary within $1,400 of non-remote postings — statistically indistinguishable from noise. The no-penalty finding is real. But whether it's actionable depends entirely on where the candidate lives, which is outside this dataset entirely. A $105,000 remote offer means something different in Austin than it does in Manhattan. Recommending remote targeting on the basis of a salary comparison that doesn't account for purchasing power would be technically grounded and practically misleading. What it would actually require: cost-of-living data matched to both the candidate's location and the employer's.</li>
-
-          <li><strong>Metro relocation.</strong> San Francisco at $140,500 median isn't ranked above Austin at $94,750 by desirability — they're different compensation envelopes in different cost contexts with different posting volumes and different sector compositions. Telling a candidate to relocate based on salary rank alone would be right on one dimension and wrong on several others that this dataset can't model. The metro data is a reference for what the market pays in a given geography. It's not a relocation directive.</li>
-
-          <li><strong>Tier 3 skill compensation premium.</strong> There's no evidence in this dataset that any specific Tier 3 or Tier 4 skill commands a salary premium over any other. Posting frequency tells you how often the market asks for something — it says nothing about what the market pays for it. A skill appearing in 9% of postings may pay exactly the same as one in 2% if the roles requiring both draw from the same compensation distribution. Making that recommendation would require a regression joining skill presence to salary disclosure at the posting level, controlling for seniority, metro, and sector simultaneously. That analysis is out of scope here.</li>
-
-          <li><strong>Avoiding lower-median sectors.</strong> Healthcare posts a BLS median below the market-wide figure. That describes the sector's compensation envelope — not whether a candidate with genuine interest in healthcare and a governance-oriented skill profile should enter it. Personal fit, growth trajectory, regulatory stability, and domain interest all interact with sector compensation in ways a salary table can't capture. A candidate who avoids healthcare because the median is lower than Information is optimizing on one number and ignoring everything else that determines whether a career works.</li>
-        </ul>
+        <div style="margin-top:1rem;">
+          <div class="item-card">
+            <div class="item-card-title">Remote targeting</div>
+            <p>Remote postings show a median salary within $1,400 of non-remote postings — statistically indistinguishable from noise. The no-penalty finding is real. But whether it's actionable depends entirely on where the candidate lives, which is outside this dataset entirely. A $105,000 remote offer means something different in Austin than it does in Manhattan. Recommending remote targeting on the basis of a salary comparison that doesn't account for purchasing power would be technically grounded and practically misleading. What it would actually require: cost-of-living data matched to both the candidate's location and the employer's.</p>
+          </div>
+          <div class="item-card">
+            <div class="item-card-title">Metro relocation</div>
+            <p>San Francisco at $140,500 median isn't ranked above Austin at $94,750 by desirability — they're different compensation envelopes in different cost contexts with different posting volumes and different sector compositions. Telling a candidate to relocate based on salary rank alone would be right on one dimension and wrong on several others that this dataset can't model. The metro data is a reference for what the market pays in a given geography. It's not a relocation directive.</p>
+          </div>
+          <div class="item-card">
+            <div class="item-card-title">Tier 3 skill compensation premium</div>
+            <p>There's no evidence in this dataset that any specific Tier 3 or Tier 4 skill commands a salary premium over any other. Posting frequency tells you how often the market asks for something — it says nothing about what the market pays for it. A skill appearing in 9% of postings may pay exactly the same as one in 2% if the roles requiring both draw from the same compensation distribution. Making that recommendation would require a regression joining skill presence to salary disclosure at the posting level, controlling for seniority, metro, and sector simultaneously. That analysis is out of scope here.</p>
+          </div>
+          <div class="item-card">
+            <div class="item-card-title">Avoiding lower-median sectors</div>
+            <p>Healthcare posts a BLS median below the market-wide figure. That describes the sector's compensation envelope — not whether a candidate with genuine interest in healthcare and a governance-oriented skill profile should enter it. Personal fit, growth trajectory, regulatory stability, and domain interest all interact with sector compensation in ways a salary table can't capture. A candidate who avoids healthcare because the median is lower than Information is optimizing on one number and ignoring everything else that determines whether a career works.</p>
+          </div>
+        </div>
       </div>
 
       <!-- TAKEAWAY -->
