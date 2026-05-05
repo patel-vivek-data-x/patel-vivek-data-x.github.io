@@ -175,3 +175,211 @@
         <div class="claim">
           <div class="claim-hdr">
             <div class="claim-title">Skill category determines investment strategy — frequency alone is the wrong signal to optimize against</div>
+            <span class="badge b-high">Confidence Rating: High</span>
+          </div>
+          <p>Not all skills at the same posting frequency are the same investment. A cloud platform and a BI tool can appear identically often in job postings and represent completely different decisions for a candidate — one is infrastructure a company teaches you when you join their stack, the other is a communication capability they expect you to arrive with. Reading frequency as a direct proxy for priority is the most common mistake a candidate can make with this kind of data, and it produces a preparation sequence that's systematically backwards. Category — what a skill signals about how you work, not just what you know — is what actually governs how an employer reads your profile.</p>
+        </div>
+
+        <div class="claim">
+          <div class="claim-hdr">
+            <div class="claim-title">The market has a dominant center and sharply narrowing specialization lanes</div>
+            <span class="badge b-high">Confidence Rating: High</span>
+          </div>
+          <p>The market isn't evenly distributed across role types. Five archetypes emerge from how skills actually co-occur in job descriptions, and the distribution is lopsided in a way that matters for anyone deciding where to focus. Nearly half of all postings fall into the general analyst category. More than a quarter fall into BI visualization. The three specialization lanes — governance, ML adjacent, and modern data stack — together account for less than a quarter of the market. That shape isn't a hierarchy of quality; it's a map of where the volume is. A candidate targeting a narrow lane from outside the field is making a harder search with lower posting volume and higher skill specificity. That's a decision worth making with eyes open.</p>
+        </div>
+
+        <div class="claim">
+          <div class="claim-hdr">
+            <div class="claim-title">Sector shapes which archetype a posting is likely to require — but this signal is LinkedIn-only</div>
+            <span class="badge b-med">Confidence Rating: Medium</span>
+          </div>
+          <p>Where you work shapes what kind of analyst you'll be asked to be. Within the LinkedIn population, IT Services concentrates governance and BI visualization demand. Software Development shows the highest ML adjacent signal of any major-volume sector. The more interesting finding is what happens at the edges — small sectors like Professional Services and Accounting show extremely high archetype concentration, but across very few postings. High concentration in a small-volume sector is a different targeting proposition than moderate concentration across hundreds of postings, and conflating the two produces a sector strategy that looks precise but isn't. This finding is LinkedIn-only and doesn't generalize to the full dataset. That scope boundary is a condition of the claim, not a footnote.</p>
+        </div>
+
+        <div class="claim">
+          <div class="claim-hdr">
+            <div class="claim-title">The market is structurally less transparent for the candidates who most need compensation data</div>
+            <span class="badge b-high">Confidence Rating: High (structure) / Low (floor estimate)</span>
+          </div>
+          <p>The candidate who most needs compensation data is the one the market is least likely to give it to. Fewer than 100 postings across the entire dataset disclose salary at the entry level — which means the compensation figures elsewhere in this analysis describe the mid-market and senior distribution, not the floor a new entrant should use to anchor expectations. This isn't a data quality problem. It's a structural feature of how employers behave: entry-level roles disclose salary at a materially lower rate than everything above them. Knowing that changes how you enter salary conversations — not with a number pulled from a median that doesn't represent you, but with the awareness that the asymmetry is real and the negotiation is yours to run.</p>
+        </div>
+
+        <div class="claim">
+          <div class="claim-hdr">
+            <div class="claim-title">Generative AI tool literacy is below ML signal saturation — acting now is ahead of the formalization curve</div>
+            <span class="badge b-low">Confidence Rating: Low</span>
+          </div>
+          <p>Generative AI tool mentions appear in just over 6% of postings in the primary corpus — present, but not yet at the saturation level of established technical skills like machine learning. What's more telling than the number is the vocabulary employers use: broad categorical terms like "generative AI" and "AI agent" dominate over specific product names, which is consistent with a market that knows it wants this capability but hasn't yet converged on how to specify it. That gap between awareness and formalization is exactly the window a candidate can move through before it closes. This is a read from one snapshot — whether the signal is growing, stable, or plateauing would require a second scrape to establish.</p>
+        </div>
+      </div>
+
+      <!-- RECOMMENDATIONS -->
+      <div class="project-section reveal d2">
+        <div class="section-label">Five Recommendations</div>
+        <p style="font-size:.78rem;color:var(--muted);margin-bottom:1.4rem;">Five recommendations follow directly from the confirmed claims. Each names the action, what authorizes it, and where it runs out. None of them extend beyond what the evidence licenses.</p>
+
+        <ul class="flist">
+          <li><strong>Get Tier 1 solid before touching anything else.</strong> SQL, Excel, and Python need to be at a level that holds up in a screening interview — that's the floor, not the differentiator. Once that's covered, add one visualization tool. Tableau or Power BI, either works — both satisfy the BI visualization archetype signal and both appear at comparable frequency in the market. That's the one non-negotiable move above Tier 1. Cloud platforms, Agile, Jira — those are learnable on the job and no employer is screening out an otherwise qualified candidate for their absence at the point of entry. A longer list would contradict what the category framework actually shows. <em>Evidence: Claims 2 and 3.</em></li>
+
+          <li><strong>Target the general analyst archetype first — specialize from inside the field, not before entering it.</strong> It represents nearly half of all postings, the highest volume of any archetype, and the lowest barrier to entry. The specialization lanes — ML adjacent, modern data stack — are real, but they're narrow, competitive, and better targeted from inside the field once you have domain experience to work with. Getting in matters more than getting in through the right lane. The sequencing question — which archetype, which sector, which Tier 3 skill — is answered better after your first role than before it. <em>Evidence: Claims 4 and 5.</em></li>
+
+          <li><strong>Optimize both compensation levers simultaneously — metro and industry — rather than treating salary as a single number attached to a job title.</strong> The spread across metros is real and wide. The spread across industry sectors is equally real and operates independently. A candidate who aligns both — high-compensation metro, high-compensation sector — is running two advantages at once rather than one. Neither lever cancels the other out. Neither can be fully evaluated without accounting for cost of living and personal constraints the compensation data alone can't model. <em>Evidence: Claim 1.</em></li>
+
+          <li><strong>Treat undisclosed salary as a negotiation condition, not a disqualifying signal.</strong> Most entry-level postings don't disclose salary — and filtering them out removes most of the market you're actually trying to enter. The right move isn't to avoid non-disclosing postings. It's to enter those conversations knowing that the asymmetry is structural, not adversarial, and that the information gap runs both ways. An employer who hasn't posted a number doesn't know yours either. That's a negotiation, not a disadvantage. <em>Evidence: Claim 6.</em></li>
+
+          <li><strong>Start building generative AI tool literacy now, before it becomes a screening criterion.</strong> The window between "employers know they want this" and "employers screen for it" is open right now. At just over 6% of postings, the signal is present but not saturated. Employers are naming the capability in broad terms rather than mandating specific platforms — which means the investment is familiarity with the class of technology, not expertise in any one tool. A candidate who moves through that window before it closes has an advantage that disappears once formalization catches up. <em>Evidence: Claim 7.</em></li>
+        </ul>
+      </div>
+
+      <!-- FORMALLY REFUSED -->
+      <div class="project-section reveal d3">
+        <div class="section-label">What Was Formally Refused</div>
+        <p>Four recommendations were considered and explicitly declined — not because the questions aren't worth asking, but because the dataset structurally cannot support a defensible answer to any of them. Each refusal is documented here because knowing what the data can't tell you is as analytically useful as knowing what it can.</p>
+
+        <ul class="flist" style="margin-top:1rem;">
+          <li><strong>Targeting remote roles based on the no-penalty finding.</strong> Remote postings show a median salary within $1,400 of non-remote postings — statistically indistinguishable from noise. The no-penalty finding is real. But whether it's actionable depends entirely on where the candidate lives, which is outside this dataset entirely. A $105,000 remote offer means something different in Austin than it does in Manhattan. Recommending remote targeting on the basis of a salary comparison that doesn't account for purchasing power would be technically grounded and practically misleading. What it would actually require: cost-of-living data matched to both the candidate's location and the employer's.</li>
+
+          <li><strong>Recommending a specific metro to relocate to based on salary rank.</strong> San Francisco at $140,500 median isn't ranked above Austin at $94,750 by desirability — they're different compensation envelopes in different cost contexts with different posting volumes and different sector compositions. Telling a candidate to relocate based on salary rank alone would be right on one dimension and wrong on several others this dataset can't model. The metro data is a reference for what the market pays in a given geography. It is not a relocation directive.</li>
+
+          <li><strong>Recommending a specific Tier 3 skill based on an implied compensation premium.</strong> There's no evidence in this dataset that any specific Tier 3 or Tier 4 skill commands a salary premium over any other. Posting frequency tells you how often the market asks for something — it says nothing about what the market pays for it. A skill appearing in 9% of postings may pay exactly the same as one in 2% if the roles requiring both draw from the same compensation distribution. Making that recommendation would require a regression joining skill presence to salary disclosure at the posting level, controlling for seniority, metro, and sector simultaneously. That analysis is out of scope here.</li>
+
+          <li><strong>Recommending against entering lower-median industry sectors.</strong> Healthcare posts a BLS median below the market-wide figure. That describes the sector's compensation envelope — not whether a candidate with genuine interest in healthcare and a governance-oriented skill profile should enter it. Personal fit, growth trajectory, regulatory stability, and domain interest all interact with sector compensation in ways a salary table can't capture. A candidate who avoids healthcare because the median is lower than Information is optimizing on one number and ignoring everything else that determines whether a career actually works.</li>
+        </ul>
+      </div>
+
+      <!-- TAKEAWAY -->
+      <div class="project-section reveal">
+        <div class="section-label">Takeaway</div>
+        <p>If there's one thing this analysis makes clear, it's that the data analyst market rewards candidates who understand its shape before they start moving through it. The general analyst archetype is the right entry target. Tier 1 plus one visualization tool is the skill floor that makes you competitive. Sector and geography are both real levers — and both are more actionable than most candidates realize. The rest of the decisions are made better from inside the field than from outside it.</p>
+      </div>
+      <div class="project-section reveal">
+        <div class="section-label">Visualizations</div>
+        <p style="font-size:.78rem;color:var(--muted);margin-bottom:1.5rem;">Five visuals approved and built in Tableau Public. Each was approved only if its underlying finding was confirmed by both a primary and cross-validation query. Two candidate visuals were formally declined — the skill co-occurrence matrix (the archetypes it produced communicate the finding more cleanly) and an AI tooling standalone bar chart (a single-snapshot frequency chart invites trend inference the dataset cannot support).</p>
+        <div class="visuals">
+          <div class="visual">
+            <img src="v1_metro_compensation_range.png" alt="Metro Compensation Range"/>
+            <div class="vcap">V1 — Metro Compensation Range &middot; p25 / p50 / p75 across 19 eligible metros with BLS benchmark reference &middot; Indeed employer-disclosed postings only</div>
+          </div>
+          <div class="visual">
+            <img src="v2_skill_demand_by_tier.png" alt="Skill Demand by Tier"/>
+            <div class="vcap">V2 — Skill Demand by Tier &middot; 76 skills above 50-posting minimum support threshold, organized by tier &middot; Indeed + LinkedIn primary corpus</div>
+          </div>
+          <div class="visual">
+            <img src="v3_role_archetype_distribution.png" alt="Role Archetype Distribution"/>
+            <div class="vcap">V3 — Role Archetype Distribution &middot; Five 5c archetype signal shares with 5b full-intersection comparison for methodological transparency</div>
+          </div>
+          <div class="visual">
+            <img src="v4_industry_compensation_range.png" alt="Industry Compensation Range"/>
+            <div class="vcap">V4 — Industry Compensation Range &middot; BLS OES May 2024 p25 / median / p75 across 19 NAICS sectors for SOC 15-2051 &middot; 22-month lag disclosed</div>
+          </div>
+          <div class="visual">
+            <img src="v5_sector_archetype_signal.png" alt="Sector x Archetype Signal Intensity"/>
+            <div class="vcap">V5 — Sector &times; Archetype Signal Intensity &middot; LinkedIn-only heatmap across 20 sectors with &ge;20 postings &middot; Orange diverging scale &middot; Scope boundary applies to every cell</div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- end project-content -->
+
+    <!-- SIDEBAR -->
+    <div class="sidebar reveal d1">
+
+      <div class="sb-sec">
+        <div class="sb-lbl">Type</div>
+        <div class="sb-val">Descriptive &amp; Prescriptive Analytics</div>
+      </div>
+
+      <div class="sb-sec">
+        <div class="sb-lbl">Domain</div>
+        <div class="sb-val">Labour Market · U.S. Data Analyst Roles</div>
+      </div>
+
+      <div class="sb-sec">
+        <div class="sb-lbl">Tools</div>
+        <div class="tools">
+          <span class="tool">Python</span>
+          <span class="tool">SQL</span>
+          <span class="tool">DuckDB</span>
+          <span class="tool">Tableau</span>
+          <span class="tool">Excel</span>
+          <span class="tool">JobSpy</span>
+          <span class="tool">Adzuna API</span>
+          <span class="tool">GitHub Actions</span>
+        </div>
+      </div>
+
+      <div class="sb-sec">
+        <div class="sb-lbl">Dataset</div>
+        <div class="sb-val">
+          17,076 unique postings<br>
+          Scraped March 28, 2026<br>
+          25 U.S. metro markets<br>
+          4,199 salary-disclosed<br>
+          76 skills tracked<br>
+          BLS OES May 2024 enrichment
+        </div>
+      </div>
+
+      <div class="sb-sec">
+        <div class="sb-lbl">Sources</div>
+        <div class="sb-val">
+          Indeed — 7,109 postings<br>
+          Adzuna — 7,705 postings<br>
+          LinkedIn — 3,295 postings
+        </div>
+      </div>
+
+      <div class="sb-sec">
+        <div class="sb-lbl">Status</div>
+        <div class="sb-val">Complete</div>
+      </div>
+
+      <div class="sb-sec">
+        <a href="https://github.com/patel-vivek-data-x/data-analyst-job-market" target="_blank" class="sb-link">View on GitHub &#x2197;</a>
+      </div>
+
+    </div>
+  </div><!-- end project-main -->
+
+  <div class="next-sec">
+    <div class="next-lbl">Next Project</div>
+    <a class="next-card" href="project-fifa.html">
+      <img src="stadium.png" alt="FIFA 23"/>
+      <div class="noverlay"></div>
+      <div class="ninfo">
+        <div class="ntype">Descriptive Analytics &middot; Complete</div>
+        <div class="ntitle">FIFA 23 Talent Distribution Analysis</div>
+      </div>
+    </a>
+  </div>
+
+  <div class="contact-sec">
+    <div class="contact-heading reveal">Get in Touch</div>
+    <div class="clinks reveal d1">
+      <a class="clink" href="mailto:patel.vivek.data.x@gmail.com">Email</a>
+      <a class="clink" href="https://www.linkedin.com/in/vivek-patel-1b1300400" target="_blank">LinkedIn</a>
+      <a class="clink" href="https://github.com/patel-vivek-data-x" target="_blank">GitHub</a>
+    </div>
+  </div>
+
+  <footer>
+    <span class="fcopy">&copy; 2025 Vivek Patel</span>
+    <a href="index.html" class="fbrand">Vivek<span>&#169;</span></a>
+  </footer>
+
+  <script>
+    // Nav scroll
+    const nav = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 40);
+    }, {passive: true});
+
+    // Reveal on scroll
+    const reveals = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if(e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+    }, {threshold: 0.08});
+    reveals.forEach(el => io.observe(el));
+  </script>
+</body>
+</html>
