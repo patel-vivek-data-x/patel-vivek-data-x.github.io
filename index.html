@@ -4,7 +4,7 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Vivek Patel — Data Analyst</title>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&family=Barlow+Condensed:wght@600;700;800&display=swap" rel="stylesheet"/>
   <style>
     :root{
       --bg:#0A0A0A;--bg2:#111111;--bg3:#1A1A1A;--rim:#2A2A2A;
@@ -33,6 +33,9 @@
     .hero-sub{margin-top:1.5rem;font-family:"DM Sans",sans-serif;font-size:.72rem;letter-spacing:.25em;text-transform:uppercase;color:var(--ink);font-weight:400}
     .hero-scroll{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);font-family:"DM Sans",sans-serif;font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);display:flex;flex-direction:column;align-items:center;gap:.5rem;opacity:0;animation:fadeUp 1s ease forwards 1.2s}
     .hero-scroll-line{width:1px;height:2.5rem;background:linear-gradient(to bottom,var(--purple),transparent);animation:scanDown 2s ease-in-out infinite}
+    .hero-name{z-index:1;position:relative;}
+    .hero-sub{z-index:1;position:relative;}
+    .hero-scroll{z-index:1;}
 
     #works{position:relative;z-index:10;background:var(--bg);padding:5rem 3.5rem;margin-top:-2px}
     .section-title{font-family:"DM Sans",sans-serif;font-size:clamp(2rem,5vw,3.5rem);font-weight:600;letter-spacing:-.02em;color:var(--ink);text-transform:uppercase;margin-bottom:3rem}
@@ -52,19 +55,29 @@
     .work-wip{position:absolute;top:1.5rem;left:1.5rem;font-family:"DM Sans",sans-serif;font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;padding:.28rem .75rem;background:rgba(10,10,10,0.8);color:var(--muted);border:1px solid var(--rim)}
     .work-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:var(--purple)}
 
-    #about{padding:6rem 3.5rem;border-top:1px solid var(--rim)}
-    .about-title{font-family:"DM Sans",sans-serif;font-size:clamp(2rem,5vw,3.5rem);font-weight:600;letter-spacing:-.02em;color:var(--ink);text-transform:uppercase;margin-bottom:3rem}
-    .about-row{display:grid;grid-template-columns:180px 1fr;gap:2rem;padding:2rem 0}
-    .about-row+.about-row{border-top:1px solid var(--rim)}
-    .about-label{font-family:"DM Sans",sans-serif;font-size:.68rem;font-weight:400;color:var(--muted);letter-spacing:.12em;text-transform:uppercase;padding-top:.15rem}
-    .about-text{font-family:"DM Sans",sans-serif;font-size:.9rem;font-weight:300;color:var(--ink2);line-height:1.85}
-    .about-text strong{color:var(--ink);font-weight:500}
-    .about-text em{color:var(--purple);font-style:normal}
-    .about-photo{position:sticky;top:7rem;height:calc(100vh - 4rem);overflow:hidden}
-    .about-photo img{width:100%;height:100%;object-fit:cover;display:block}
-    .tool-row{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.6rem}
-    .tool-chip{padding:.22rem .65rem;border:1px solid var(--rim);background:transparent;font-family:"DM Sans",sans-serif;font-size:.68rem;color:var(--ink2);letter-spacing:.04em;transition:all .2s;font-weight:400}
-    .tool-chip:hover{border-color:var(--purple);color:var(--purple)}
+    #about{border-top:1px solid var(--rim);position:relative;overflow:hidden;height:100vh;display:flex;flex-direction:column;justify-content:center}
+    #aboutStarCanvas{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+    .about-heading-block{position:absolute;top:2rem;left:3.5rem;z-index:10;line-height:.85}
+    .about-heading-block .line1{font-family:"Barlow Condensed","DM Sans",sans-serif;font-size:clamp(2.2rem,4vw,3.4rem);font-weight:800;color:var(--ink);text-transform:uppercase;letter-spacing:.02em;display:block}
+    .about-heading-block .line2{font-family:"Barlow Condensed","DM Sans",sans-serif;font-size:clamp(2.2rem,4vw,3.4rem);font-weight:800;color:var(--purple);text-transform:uppercase;letter-spacing:.02em;display:block}
+    .about-nav-dots{position:absolute;bottom:2rem;left:3.5rem;z-index:10;display:flex;gap:.5rem;align-items:center}
+    .about-nav-dot{width:6px;height:6px;border-radius:50%;background:rgba(155,127,232,0.25);cursor:pointer;transition:background .3s,transform .3s}
+    .about-nav-dot.active{background:var(--purple);transform:scale(1.5)}
+    .about-stage{position:relative;z-index:2;width:100%;height:44vh;display:flex;flex-direction:column;justify-content:center;gap:4px;margin-top:1rem}
+    .acbar{position:relative;cursor:pointer;transform:skewY(-5deg);transform-origin:left center;transition:flex .42s cubic-bezier(0.16,1,0.3,1),margin-left .42s cubic-bezier(0.16,1,0.3,1),opacity .3s,border-color .3s}
+    .acbar{flex:1;background:#161616;border-left:3px solid #252525;opacity:.4;margin-left:58%;overflow:hidden}
+    .acbar.adj{flex:1.6;opacity:.6;background:#1e1e1e;border-left:3px solid rgba(155,127,232,0.35);margin-left:38%}
+    .acbar.active{flex:4.5;opacity:1;border-left:5px solid var(--purple);margin-left:18%;overflow:visible;background:url('splatter.png') left center/auto 100% no-repeat,linear-gradient(135deg,#fdfcff 0%,#f8f4ff 30%,#fdfcff 60%,#f4efff 100%)}
+    .acbar.active::after{content:'';position:absolute;bottom:-9px;left:8%;right:0;height:8px;background:var(--purple);z-index:-1}
+    .acbar-num{position:absolute;right:1.5rem;top:50%;transform:translateY(-50%);font-family:"Barlow Condensed","DM Sans",sans-serif;font-size:7rem;font-weight:800;color:rgba(155,127,232,.05);letter-spacing:-.02em;line-height:1;pointer-events:none;transition:color .3s}
+    .acbar.active .acbar-num{color:rgba(155,127,232,.11)}
+    .acbar-inner{position:relative;z-index:1;height:100%;padding:0 2rem;display:flex;flex-direction:column;justify-content:center;gap:.15rem}
+    .acbar-eyebrow{font-family:"Barlow Condensed","DM Sans",sans-serif;font-size:.7rem;font-weight:600;letter-spacing:.28em;color:var(--purple);text-transform:uppercase;opacity:0;transition:opacity .3s .12s}
+    .acbar.active .acbar-eyebrow{opacity:1}
+    .acbar-title{font-family:"Barlow Condensed","DM Sans",sans-serif;font-size:1.9rem;font-weight:700;letter-spacing:.03em;text-transform:uppercase;color:#1a1a1a;transition:color .3s,font-size .3s}
+    .acbar:not(.active) .acbar-title{color:#666;font-size:1rem;font-weight:600}
+    .acbar-text{font-size:.8rem;font-weight:300;color:#1e1e1e;line-height:1.75;max-width:82%;opacity:0;transform:translateY(4px);transition:opacity .3s .18s,transform .3s .18s}
+    .acbar.active .acbar-text{opacity:1;transform:translateY(0)}
 
     #credentials{padding:6rem 3.5rem;border-top:1px solid var(--rim)}
     .cert-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:3rem}
@@ -129,6 +142,7 @@
   </nav>
 
   <section id="hero">
+    <canvas id="heroCanvas" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:0"></canvas>
     <div class="hero-name" id="heroName">VIVEK PATEL</div>
     <div class="hero-sub">Data Analyst · Houston TX</div>
     <div class="hero-scroll"><div class="hero-scroll-line"></div>Scroll</div>
@@ -159,38 +173,20 @@
   </section>
 
   <section id="about">
-    <div class="about-title reveal">About Me</div>
-    <div class="about-grid">
-      <div class="about-rows">
-        <div class="about-row reveal">
-          <div class="about-label">What I Do</div>
-          <div class="about-text">I find patterns in data that hold up under scrutiny — and I'm equally focused on knowing when they don't. Most analytical errors aren't in the math. They're in the question that was asked, the proxy that was trusted too far, or the claim that outran what the evidence could actually support. Every project I build is oriented around that standard: not just producing a finding, but being able to defend exactly why it's true and name precisely where it stops being true. The part I find most satisfying is communicating that — taking something analytically complex and making it legible, bounded, and useful to someone who wasn't in the room when the data was being pulled apart.</div>
-        </div>
-        <div class="about-row reveal d1">
-          <div class="about-label">Background</div>
-          <div class="about-text">I didn't take the traditional route into this field. I took the one that made sense to me — <strong>certifications over degrees, projects over theory, questions over answers</strong>. Self-taught through <em>Google, Microsoft, and Macquarie University</em> via Coursera, with every project built end-to-end: from environment setup and acquisition through cleaning, EDA, visualization, and stakeholder-ready conclusions. Each step documented, each limitation named, each analytical decision traceable to its rationale. That discipline isn't a stylistic preference — it's what makes the work stand up when someone looks closely at it.</div>
-        </div>
-        <div class="about-row reveal d2">
-          <div class="about-label">How I Think</div>
-          <div class="about-text">The decisions that shape an analysis — what the data can actually support, what constraints carry forward, where the real question lives underneath the one that was originally asked — are the ones that matter most and get made earliest. I take that seriously because the cost of getting them wrong doesn't show up immediately. It accumulates quietly, and by the time it surfaces it's harder to correct. My instinct is to front-load rigor: establish the boundaries of what's defensible before building anything on top of them, so that when a stakeholder pushes on a finding, the answer is already in the work.</div>
-        </div>
-        <div class="about-row reveal d3">
-          <div class="about-label">Approach</div>
-          <div class="about-text">Every project follows the same standard: reproducible pipeline, findings cross-validated before they become claims, and a clear record of what the analysis concluded and what it explicitly refused to. The understanding phase is where the most consequential decisions get made — what the data can actually support, what constraints carry forward, and where the real analytical questions live. Everything downstream is cleaner when that phase is treated as the real work, not just a preliminary step before the real work begins.</div>
-        </div>
-        <div class="about-row reveal d3">
-          <div class="about-label">Currently</div>
-          <div class="about-text">Seeking entry-level Data Analyst roles where rigorous thinking is valued over fast answers.
-            <div class="tool-row">
-              <span class="tool-chip">Python</span><span class="tool-chip">SQL</span>
-              <span class="tool-chip">DuckDB</span><span class="tool-chip">Tableau</span>
-              <span class="tool-chip">Power BI</span><span class="tool-chip">Excel</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+    <canvas id="aboutStarCanvas"></canvas>
+    <div class="about-heading-block">
+      <span class="line1">About</span>
+      <span class="line2">Me</span>
+  </div>
+  <div class="about-nav-dots" id="aboutNavDots">
+    <div class="about-nav-dot active" data-i="0"></div>
+    <div class="about-nav-dot" data-i="1"></div>
+    <div class="about-nav-dot" data-i="2"></div>
+    <div class="about-nav-dot" data-i="3"></div>
+    <div class="about-nav-dot" data-i="4"></div>
+  </div>
+  <div class="about-stage" id="aboutStage"></div>
+</section>
 
   <section id="credentials">
     <div class="section-title reveal">Credentials</div>
@@ -258,6 +254,156 @@
     );
     function updateTime(){const t=new Date().toLocaleTimeString('en-US',{hour:'2-digit',minute:'2-digit',second:'2-digit',hour12:false});const el=document.getElementById('navTime');if(el)el.textContent='HOU '+t;}
     updateTime();setInterval(updateTime,1000);
+
+    (function(){
+  const canvas = document.getElementById('heroCanvas');
+  const ctx = canvas.getContext('2d');
+  const hero = document.getElementById('hero');
+
+  function resize(){
+    canvas.width = hero.offsetWidth;
+    canvas.height = hero.offsetHeight;
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  function rand(a,b){return a+Math.random()*(b-a)}
+
+  function bolt(ctx,x1,y1,x2,y2,spread,depth){
+    if(depth<=0)return;
+    const mx=(x1+x2)/2+rand(-spread,spread);
+    const my=(y1+y2)/2+rand(-spread,spread);
+    ctx.beginPath();ctx.moveTo(x1,y1);ctx.lineTo(mx,my);ctx.lineTo(x2,y2);ctx.stroke();
+    if(depth>1&&Math.random()<0.45){
+      const bx=mx+rand(-spread*2,spread*2);
+      const by=my+rand(-spread*2,spread*2);
+      const a=ctx.globalAlpha;
+      ctx.globalAlpha*=0.5;
+      bolt(ctx,mx,my,bx,by,spread*0.6,depth-1);
+      ctx.globalAlpha=a;
+    }
+    bolt(ctx,x1,y1,mx,my,spread*0.5,depth-1);
+    bolt(ctx,mx,my,x2,y2,spread*0.5,depth-1);
+  }
+
+  let bolts=[];
+  let last=0;
+  let nextDelay=0;
+
+  function spawn(){
+    const w=canvas.width,h=canvas.height;
+    const sx=rand(w*0.2,w*0.8);
+    bolts.push({x1:sx,y1:0,x2:sx+rand(-w*0.15,w*0.15),y2:h,life:1,decay:rand(0.04,0.07),spread:rand(60,130),depth:5});
+    if(Math.random()<0.4){
+      bolts.push({x1:sx,y1:rand(h*0.1,h*0.4),x2:sx+rand(-w*0.2,w*0.2),y2:rand(h*0.5,h*0.9),life:0.7,decay:rand(0.06,0.1),spread:rand(40,90),depth:4});
+    }
+  }
+
+  function draw(ts){
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    if(ts-last>nextDelay){spawn();last=ts;nextDelay=rand(2000,4500);}
+    bolts=bolts.filter(b=>b.life>0);
+    bolts.forEach(b=>{
+      ctx.save();
+      ctx.globalAlpha=b.life*0.8;
+      ctx.strokeStyle=`rgba(155,127,232,${b.life})`;
+      ctx.lineWidth=b.life*1.5;
+      ctx.shadowColor='rgba(155,127,232,0.9)';
+      ctx.shadowBlur=14*b.life;
+      bolt(ctx,b.x1,b.y1,b.x2,b.y2,b.spread,b.depth);
+      ctx.globalAlpha=b.life*0.25;
+      ctx.strokeStyle=`rgba(255,255,255,${b.life})`;
+      ctx.lineWidth=b.life*0.4;
+      ctx.shadowBlur=4;
+      bolt(ctx,b.x1,b.y1,b.x2,b.y2,b.spread*0.3,3);
+      ctx.restore();
+      b.life-=b.decay;
+    });
+    requestAnimationFrame(draw);
+  }
+  requestAnimationFrame(draw);
+})();
+
+  // ── ABOUT SECTION ──
+(function(){
+  const ITEMS=[
+    {num:'01',label:'What I Do',text:"I find patterns in data that hold up under scrutiny — and I'm equally focused on knowing when they don't. Most analytical errors aren't in the math. They're in the question that was asked, the proxy that was trusted too far, or the claim that outran what the evidence could actually support. The part I find most satisfying is communicating that — making something analytically complex legible, bounded, and useful."},
+    {num:'02',label:'Background',text:"I didn't take the traditional route into this field. Certifications over degrees, projects over theory, questions over answers. Self-taught through Google, Microsoft, and Macquarie University via Coursera — every project built end-to-end, every decision documented. That discipline isn't aesthetic. It's what makes the work stand up when someone looks closely at it."},
+    {num:'03',label:'How I Think',text:"The decisions that shape an analysis are the ones that matter most and get made earliest. My instinct is to front-load rigor — establish the boundaries of what's defensible before building anything on top of them, so that when a stakeholder pushes on a finding, the answer is already in the work."},
+    {num:'04',label:'Approach',text:"Every project follows the same standard: reproducible pipeline, findings cross-validated before they become claims, and a clear record of what the analysis concluded and what it explicitly refused to. Each limitation named. Each decision traceable."},
+    {num:'05',label:'Currently',text:"Seeking entry-level Data Analyst roles where rigorous thinking is valued over fast answers. Open to Houston or remote. Python · SQL · DuckDB · Tableau · Power BI · Excel."}
+  ];
+  const stage=document.getElementById('aboutStage');
+  const dots=document.querySelectorAll('.about-nav-dot');
+  const canvas=document.getElementById('aboutStarCanvas');
+  const ctx=canvas.getContext('2d');
+  let current=0;
+
+  function drawStars(){
+    canvas.width=window.innerWidth;
+    canvas.height=window.innerHeight;
+    for(let i=0;i<200;i++){
+      const x=Math.random()*canvas.width,y=Math.random()*canvas.height;
+      const r=Math.random()*1.1+0.1,a=Math.random()*.55+.1;
+      ctx.beginPath();ctx.arc(x,y,r,0,Math.PI*2);
+      ctx.fillStyle=`rgba(210,200,255,${a})`;ctx.fill();
+    }
+    const g=ctx.createRadialGradient(canvas.width*.72,canvas.height*.3,0,canvas.width*.72,canvas.height*.3,canvas.width*.45);
+    g.addColorStop(0,'rgba(155,127,232,0.09)');g.addColorStop(1,'rgba(0,0,0,0)');
+    ctx.fillStyle=g;ctx.fillRect(0,0,canvas.width,canvas.height);
+  }
+  drawStars();
+  window.addEventListener('resize',drawStars);
+
+  function getVisible(i){
+    if(i===0)return[0,1,2];
+    if(i===ITEMS.length-1)return[i-2,i-1,i];
+    return[i-1,i,i+1];
+  }
+
+  function render(active){
+    const visible=getVisible(active);
+    stage.innerHTML='';
+    visible.forEach(idx=>{
+      const item=ITEMS[idx];
+      const isActive=idx===active;
+      const bar=document.createElement('div');
+      bar.className='acbar'+(isActive?' active':' adj');
+      bar.dataset.i=idx;
+      bar.innerHTML=`<div class="acbar-num">${item.num}</div><div class="acbar-inner"><div class="acbar-eyebrow">${item.num} · ${item.label.toUpperCase()}</div><div class="acbar-title">${item.label}</div><div class="acbar-text">${item.text}</div></div>`;
+      bar.addEventListener('click',()=>setActive(idx));
+      stage.appendChild(bar);
+    });
+  }
+
+  function setActive(i){
+    current=i;
+    dots.forEach((d,idx)=>d.classList.toggle('active',idx===i));
+    render(i);
+  }
+
+  let wa=0,wt=null,wLast=0;
+  const aboutEl=document.getElementById('about');
+  aboutEl.addEventListener('wheel',e=>{
+    e.stopPropagation();
+    wa+=e.deltaY;
+    const now=Date.now();
+    if(Math.abs(wa)>60&&now-wLast>350){
+      if(wa>0&&current<ITEMS.length-1){setActive(current+1);wLast=now;}
+      else if(wa<0&&current>0){setActive(current-1);wLast=now;}
+      wa=0;clearTimeout(wt);return;
+    }
+    clearTimeout(wt);
+    wt=setTimeout(()=>{
+      if(wa>20&&current<ITEMS.length-1&&Date.now()-wLast>350){setActive(current+1);wLast=Date.now();}
+      else if(wa<-20&&current>0&&Date.now()-wLast>350){setActive(current-1);wLast=Date.now();}
+      wa=0;
+    },60);
+  },{passive:true});
+
+  dots.forEach(d=>d.addEventListener('click',()=>setActive(+d.dataset.i)));
+  setActive(0);
+})();
   </script>
 </body>
 </html>
