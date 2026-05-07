@@ -55,8 +55,8 @@
     .work-wip{position:absolute;top:1.5rem;left:1.5rem;font-family:"DM Sans",sans-serif;font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;padding:.28rem .75rem;background:rgba(10,10,10,0.8);color:var(--muted);border:1px solid var(--rim)}
     .work-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:var(--purple)}
 
-    #about{border-top:1px solid var(--rim);position:relative;overflow:hidden;height:100vh;display:flex;flex-direction:column;justify-content:center}
-    #aboutStarCanvas{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+    #about{border-top:1px solid var(--rim);position:relative;overflow:hidden;height:100vh;display:flex;flex-direction:column;justify-content:center;background:#0A0A0A}
+    #about::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 55% 60% at 88% 85%,rgba(155,127,232,0.09) 0%,transparent 70%),radial-gradient(ellipse 30% 40% at 95% 100%,rgba(120,90,200,0.06) 0%,transparent 70%),radial-gradient(ellipse 20% 25% at 5% 90%,rgba(155,127,232,0.05) 0%,transparent 70%);pointer-events:none;z-index:0}
     .about-heading-block{position:absolute;top:2rem;left:3.5rem;z-index:10;line-height:.85}
     .about-heading-block .line1{font-family:"Barlow Condensed","DM Sans",sans-serif;font-size:clamp(2.2rem,4vw,3.4rem);font-weight:800;color:var(--ink);text-transform:uppercase;letter-spacing:.02em;display:block}
     .about-heading-block .line2{font-family:"Barlow Condensed","DM Sans",sans-serif;font-size:clamp(2.2rem,4vw,3.4rem);font-weight:800;color:var(--purple);text-transform:uppercase;letter-spacing:.02em;display:block}
@@ -67,7 +67,9 @@
     .acbar{position:relative;cursor:pointer;transform:skewY(-5deg);transform-origin:left center;transition:flex .42s cubic-bezier(0.16,1,0.3,1),margin-left .42s cubic-bezier(0.16,1,0.3,1),opacity .3s,border-color .3s}
     .acbar{flex:1;background:#161616;border-left:3px solid #252525;opacity:.4;margin-left:58%;overflow:hidden}
     .acbar.adj{flex:1.6;opacity:.6;background:#1e1e1e;border-left:3px solid rgba(155,127,232,0.35);margin-left:38%}
-    .acbar.active{flex:4.5;opacity:1;border-left:5px solid var(--purple);margin-left:18%;overflow:visible;background:url('splatter.png') left center/auto 100% no-repeat,linear-gradient(135deg,#fdfcff 0%,#f8f4ff 30%,#fdfcff 60%,#f4efff 100%)}
+    .acbar.active{flex:4.5;opacity:1;border-left:5px solid var(--purple);margin-left:18%;overflow:visible;background:linear-gradient(135deg,rgba(255,255,255,0.85) 0%,rgba(240,236,255,0.6) 25%,rgba(232,226,255,0.5) 50%,rgba(245,242,255,0.7) 75%,rgba(255,255,255,0.8) 100%),linear-gradient(105deg,transparent 0%,rgba(255,255,255,0.4) 35%,rgba(255,255,255,0.6) 42%,rgba(255,255,255,0.4) 50%,transparent 100%),linear-gradient(135deg,#f8f6ff 0%,#f0ecff 40%,#f5f2ff 70%,#ede8ff 100%)}
+    .acbar.active::before{content:'';position:absolute;inset:0;background:linear-gradient(105deg,transparent 0%,transparent 30%,rgba(255,255,255,0.18) 45%,rgba(255,255,255,0.32) 50%,rgba(255,255,255,0.18) 55%,transparent 70%,transparent 100%);animation:sheen 4s ease-in-out infinite;pointer-events:none;z-index:0}
+    @keyframes sheen{0%{transform:translateX(-100%) skewX(-15deg)}40%{transform:translateX(-100%) skewX(-15deg)}70%{transform:translateX(200%) skewX(-15deg)}100%{transform:translateX(200%) skewX(-15deg)}}
     .acbar.active::after{content:'';position:absolute;bottom:-9px;left:8%;right:0;height:8px;background:var(--purple);z-index:-1}
     .acbar-num{position:absolute;right:1.5rem;top:50%;transform:translateY(-50%);font-family:"Barlow Condensed","DM Sans",sans-serif;font-size:7rem;font-weight:800;color:rgba(155,127,232,.05);letter-spacing:-.02em;line-height:1;pointer-events:none;transition:color .3s}
     .acbar.active .acbar-num{color:rgba(155,127,232,.11)}
@@ -173,20 +175,19 @@
   </section>
 
   <section id="about">
-    <canvas id="aboutStarCanvas"></canvas>
     <div class="about-heading-block">
       <span class="line1">About</span>
       <span class="line2">Me</span>
-  </div>
-  <div class="about-nav-dots" id="aboutNavDots">
-    <div class="about-nav-dot active" data-i="0"></div>
-    <div class="about-nav-dot" data-i="1"></div>
-    <div class="about-nav-dot" data-i="2"></div>
-    <div class="about-nav-dot" data-i="3"></div>
-    <div class="about-nav-dot" data-i="4"></div>
-  </div>
-  <div class="about-stage" id="aboutStage"></div>
-</section>
+    </div>
+    <div class="about-nav-dots" id="aboutNavDots">
+      <div class="about-nav-dot active" data-i="0"></div>
+      <div class="about-nav-dot" data-i="1"></div>
+      <div class="about-nav-dot" data-i="2"></div>
+      <div class="about-nav-dot" data-i="3"></div>
+      <div class="about-nav-dot" data-i="4"></div>
+    </div>
+    <div class="about-stage" id="aboutStage"></div>
+  </section>
 
   <section id="credentials">
     <div class="section-title reveal">Credentials</div>
@@ -325,261 +326,71 @@
 })();
 
   // ── ABOUT SECTION ──
-(function(){
-  const ITEMS=[
-    {num:'01',label:'What I Do',text:"I find patterns in data that hold up under scrutiny — and I'm equally focused on knowing when they don't. Most analytical errors aren't in the math. They're in the question that was asked, the proxy that was trusted too far, or the claim that outran what the evidence could actually support. The part I find most satisfying is communicating that — making something analytically complex legible, bounded, and useful."},
-    {num:'02',label:'Background',text:"I didn't take the traditional route into this field. Certifications over degrees, projects over theory, questions over answers. Self-taught through Google, Microsoft, and Macquarie University via Coursera — every project built end-to-end, every decision documented. That discipline isn't aesthetic. It's what makes the work stand up when someone looks closely at it."},
-    {num:'03',label:'How I Think',text:"The decisions that shape an analysis are the ones that matter most and get made earliest. My instinct is to front-load rigor — establish the boundaries of what's defensible before building anything on top of them, so that when a stakeholder pushes on a finding, the answer is already in the work."},
-    {num:'04',label:'Approach',text:"Every project follows the same standard: reproducible pipeline, findings cross-validated before they become claims, and a clear record of what the analysis concluded and what it explicitly refused to. Each limitation named. Each decision traceable."},
-    {num:'05',label:'Currently',text:"Seeking entry-level Data Analyst roles where rigorous thinking is valued over fast answers. Open to Houston or remote. Python · SQL · DuckDB · Tableau · Power BI · Excel."}
-  ];
-  const stage=document.getElementById('aboutStage');
-  const dots=document.querySelectorAll('.about-nav-dot');
-  const canvas=document.getElementById('aboutStarCanvas');
-  const ctx=canvas.getContext('2d');
-  let current=0;
+  (function(){
+    const ITEMS=[
+      {num:'01',label:'What I Do',text:"I find patterns in data that hold up under scrutiny — and I'm equally focused on knowing when they don't. Most analytical errors aren't in the math. They're in the question that was asked, the proxy that was trusted too far, or the claim that outran what the evidence could actually support. The part I find most satisfying is communicating that — making something analytically complex legible, bounded, and useful."},
+      {num:'02',label:'Background',text:"I didn't take the traditional route into this field. Certifications over degrees, projects over theory, questions over answers. Self-taught through Google, Microsoft, and Macquarie University via Coursera — every project built end-to-end, every decision documented. That discipline isn't aesthetic. It's what makes the work stand up when someone looks closely at it."},
+      {num:'03',label:'How I Think',text:"The decisions that shape an analysis are the ones that matter most and get made earliest. My instinct is to front-load rigor — establish the boundaries of what's defensible before building anything on top of them, so that when a stakeholder pushes on a finding, the answer is already in the work."},
+      {num:'04',label:'Approach',text:"Every project follows the same standard: reproducible pipeline, findings cross-validated before they become claims, and a clear record of what the analysis concluded and what it explicitly refused to. Each limitation named. Each decision traceable."},
+      {num:'05',label:'Currently',text:"Seeking entry-level Data Analyst roles where rigorous thinking is valued over fast answers. Open to Houston or remote. Python · SQL · DuckDB · Tableau · Power BI · Excel."}
+    ];
 
-  const W=canvas.width=window.innerWidth;
-  const H=canvas.height=window.innerHeight;
+    const stage=document.getElementById('aboutStage');
+    const dots=document.querySelectorAll('.about-nav-dot');
+    let current=0;
 
-  function density(x,y){
-    const br=Math.exp(-Math.pow((x-W*.78)/(W*.28),2)-Math.pow((y-H*.72)/(H*.32),2));
-    const ls=Math.exp(-Math.pow((x-W*.12)/(W*.12),2)-Math.pow((y-H*.5)/(H*.5),2));
-    const tr=Math.exp(-Math.pow((x-W*.88)/(W*.18),2)-Math.pow((y-H*.15)/(H*.18),2));
-    return Math.min(1,0.25+br*0.75+ls*0.5+tr*0.6);
-  }
-
-  const stars=[];
-  let tries=0;
-  while(stars.length<450&&tries<9000){
-    tries++;
-    const x=Math.random()*W,y=Math.random()*H;
-    if(Math.random()>density(x,y))continue;
-    const bright=Math.random()<0.07,medium=!bright&&Math.random()<0.22;
-    const r=bright?(0.9+Math.random()*0.8):medium?(0.45+Math.random()*0.55):(0.1+Math.random()*0.35);
-    const baseAlpha=bright?(0.65+Math.random()*0.35):medium?(0.28+Math.random()*0.35):(0.07+Math.random()*0.22);
-    stars.push({x,y,r,baseAlpha,alpha:baseAlpha,bright,medium,
-      shimmering:false,shimmerAlpha:baseAlpha,shimmerDir:1,
-      shimmerSpeed:0.0004+Math.random()*0.0006,
-      shimmerPeak:baseAlpha+(bright?0.35:medium?0.55:0.45),
-      bloom:false,bloomAlpha:0,bloomPhase:0,
-      inZone:(x>W*0.5&&y>H*0.4)||(x<W*0.35)||(x>W*0.7&&y<H*0.3),
-    });
-  }
-
-  const giants=[
-    {x:W*0.76,y:H*0.68,r:1.8,baseAlpha:0.95,alpha:0.95,twinkle:0,twinkleSpeed:0.008+Math.random()*0.005,color:'255,252,240'},
-    {x:W*0.11,y:H*0.75,r:1.6,baseAlpha:0.88,alpha:0.88,twinkle:1.2,twinkleSpeed:0.006+Math.random()*0.005,color:'240,235,255'},
-  ];
-
-  const off=document.createElement('canvas');
-  off.width=W;off.height=H;
-  const o=off.getContext('2d');
-  [[0.78,0.72,W*.32,0.08,[155,127,232]],[0.65,0.78,W*.22,0.06,[155,127,232]],
-  [0.88,0.60,W*.18,0.05,[155,127,232]],[0.10,0.48,W*.16,0.04,[155,127,232]],
-  [0.88,0.14,W*.20,0.07,[155,127,232]],[0.78,0.10,W*.14,0.04,[180,170,230]],
-  [0.95,0.22,W*.12,0.04,[140,120,210]]].forEach(([px,py,r,a,col])=>{
-    const g=o.createRadialGradient(W*px,H*py,0,W*px,H*py,r);
-    g.addColorStop(0,`rgba(${col[0]},${col[1]},${col[2]},${a})`);
-    g.addColorStop(1,'rgba(0,0,0,0)');
-    o.fillStyle=g;o.fillRect(0,0,W,H);
-  });
-
-  const shoots=[];
-  function launchShoot(){
-    const goRight=Math.random()<0.5;
-    const angleDeg=20+Math.random()*10;
-    const angleRad=angleDeg*Math.PI/180;
-    const speed=7+Math.random()*5;
-    const sx=goRight?W*0.0+Math.random()*W*0.2:W*0.8+Math.random()*W*0.2;
-    const sy=Math.random()*H*0.5;
-    const vx=(goRight?1:-1)*Math.cos(angleRad)*speed;
-    const vy=Math.sin(angleRad)*speed;
-    shoots.push({x:sx,y:sy,vx,vy,len:90+Math.random()*70,alpha:0,phase:'in',life:0,maxLife:60});
-  }
-  function scheduleShoot(){
-    const delay=5000+Math.random()*7000;
-    setTimeout(()=>{launchShoot();scheduleShoot();},delay);
-  }
-  scheduleShoot();
-  setTimeout(launchShoot,1500);
-  setTimeout(launchShoot,4000);
-
-  function pickShimmer(){
-    const pool=stars.filter(s=>!s.shimmering&&!s.bloom&&(s.medium||s.bright)&&s.inZone);
-    if(!pool.length)return;
-    const s=pool[Math.floor(Math.random()*pool.length)];
-    if(Math.random()<0.2&&s.bright){s.bloom=true;s.bloomAlpha=s.baseAlpha;s.bloomPhase=0;}
-    else{s.shimmering=true;s.shimmerAlpha=s.baseAlpha;s.shimmerDir=1;}
-  }
-  [0,150,350,600,900,1300].forEach(d=>setTimeout(pickShimmer,d));
-  function scheduleShimmer(){
-    const delay=300+Math.random()*700;
-    setTimeout(()=>{
-      pickShimmer();
-      if(Math.random()<0.5)setTimeout(pickShimmer,120);
-      if(Math.random()<0.25)setTimeout(pickShimmer,250);
-      scheduleShimmer();
-    },delay);
-  }
-  scheduleShimmer();
-
-  function drawGiant(g){
-    const a=g.alpha;
-    const gr=ctx.createRadialGradient(g.x,g.y,0,g.x,g.y,g.r*9);
-    gr.addColorStop(0,`rgba(${g.color},${a*0.4})`);
-    gr.addColorStop(0.3,`rgba(${g.color},${a*0.12})`);
-    gr.addColorStop(1,'rgba(0,0,0,0)');
-    ctx.fillStyle=gr;ctx.beginPath();ctx.arc(g.x,g.y,g.r*9,0,Math.PI*2);ctx.fill();
-    [[-1,0],[1,0],[0,-1],[0,1]].forEach(([dx,dy])=>{
-      const sp=g.r*12;
-      const grad=ctx.createLinearGradient(g.x,g.y,g.x+dx*sp,g.y+dy*sp);
-      grad.addColorStop(0,`rgba(${g.color},${a*0.8})`);
-      grad.addColorStop(0.5,`rgba(${g.color},${a*0.25})`);
-      grad.addColorStop(1,`rgba(${g.color},0)`);
-      ctx.strokeStyle=grad;ctx.lineWidth=0.8;
-      ctx.beginPath();ctx.moveTo(g.x,g.y);ctx.lineTo(g.x+dx*sp,g.y+dy*sp);ctx.stroke();
-      const grad2=ctx.createLinearGradient(g.x,g.y,g.x-dx*sp,g.y-dy*sp);
-      grad2.addColorStop(0,`rgba(${g.color},${a*0.8})`);
-      grad2.addColorStop(1,`rgba(${g.color},0)`);
-      ctx.strokeStyle=grad2;
-      ctx.beginPath();ctx.moveTo(g.x,g.y);ctx.lineTo(g.x-dx*sp,g.y-dy*sp);ctx.stroke();
-    });
-    ctx.beginPath();ctx.arc(g.x,g.y,g.r,0,Math.PI*2);
-    ctx.fillStyle=`rgba(${g.color},${a})`;ctx.fill();
-  }
-
-  function drawAboutStars(){
-    ctx.clearRect(0,0,W,H);
-    ctx.drawImage(off,0,0);
-
-    for(let i=shoots.length-1;i>=0;i--){
-      const s=shoots[i];
-      s.life++;
-      if(s.phase==='in'){s.alpha=Math.min(1,s.alpha+0.06);}
-      if(s.life>s.maxLife*0.6)s.phase='out';
-      if(s.phase==='out'){s.alpha-=0.04;}
-      if(s.alpha<=0){shoots.splice(i,1);continue;}
-      s.x+=s.vx;s.y+=s.vy;
-      const spd=Math.sqrt(s.vx*s.vx+s.vy*s.vy);
-      const tailX=s.x-s.vx*(s.len/spd),tailY=s.y-s.vy*(s.len/spd);
-      const sg=ctx.createLinearGradient(s.x,s.y,tailX,tailY);
-      sg.addColorStop(0,`rgba(255,255,255,${s.alpha})`);
-      sg.addColorStop(0.3,`rgba(220,210,255,${s.alpha*0.6})`);
-      sg.addColorStop(1,'rgba(155,127,232,0)');
-      ctx.strokeStyle=sg;ctx.lineWidth=1.2;
-      ctx.beginPath();ctx.moveTo(s.x,s.y);ctx.lineTo(tailX,tailY);ctx.stroke();
-      ctx.beginPath();ctx.arc(s.x,s.y,1.5,0,Math.PI*2);
-      ctx.fillStyle=`rgba(255,255,255,${s.alpha})`;ctx.fill();
+    function getVisible(i){
+      if(i===0)return[0,1,2];
+      if(i===ITEMS.length-1)return[i-2,i-1,i];
+      return[i-1,i,i+1];
     }
 
-    stars.forEach(s=>{
-      if(s.shimmering){
-        s.shimmerAlpha+=s.shimmerDir*s.shimmerSpeed*60;
-        if(s.shimmerAlpha>=s.shimmerPeak){s.shimmerAlpha=s.shimmerPeak;s.shimmerDir=-1;}
-        if(s.shimmerAlpha<=s.baseAlpha){s.shimmerAlpha=s.baseAlpha;s.shimmering=false;}
-        s.alpha=s.shimmerAlpha;
-      }
-      if(s.bloom){
-        s.bloomPhase+=0.003;
-        const t=s.bloomPhase;
-        if(t<1){
-          s.bloomAlpha=s.baseAlpha+(0.7-s.baseAlpha)*Math.sin(t*Math.PI);
-          s.alpha=s.bloomAlpha;
-          const haloA=Math.sin(t*Math.PI)*0.25;
-          const haloR=s.r*(1+Math.sin(t*Math.PI)*7);
-          const hr=ctx.createRadialGradient(s.x,s.y,0,s.x,s.y,haloR);
-          hr.addColorStop(0,`rgba(220,210,255,${haloA})`);
-          hr.addColorStop(1,'rgba(0,0,0,0)');
-          ctx.fillStyle=hr;ctx.beginPath();ctx.arc(s.x,s.y,haloR,0,Math.PI*2);ctx.fill();
-          if(t>0.35&&t<0.65){
-            const sp=s.r*(3+Math.sin(t*Math.PI)*5);
-            const sa=Math.sin((t-0.35)/0.3*Math.PI)*0.6;
-            ctx.strokeStyle=`rgba(245,240,255,${sa})`;ctx.lineWidth=0.6;
-            ctx.beginPath();ctx.moveTo(s.x-sp,s.y);ctx.lineTo(s.x+sp,s.y);ctx.stroke();
-            ctx.beginPath();ctx.moveTo(s.x,s.y-sp);ctx.lineTo(s.x,s.y+sp);ctx.stroke();
-          }
-        } else {s.bloom=false;s.alpha=s.baseAlpha;}
-      }
-      if(s.bright){
-        const gr=ctx.createRadialGradient(s.x,s.y,0,s.x,s.y,s.r*5);
-        gr.addColorStop(0,`rgba(230,220,255,${s.alpha*0.28})`);
-        gr.addColorStop(1,'rgba(0,0,0,0)');
-        ctx.fillStyle=gr;ctx.beginPath();ctx.arc(s.x,s.y,s.r*5,0,Math.PI*2);ctx.fill();
-      }
-      ctx.beginPath();ctx.arc(s.x,s.y,s.r,0,Math.PI*2);
-      ctx.fillStyle=`rgba(220,215,255,${s.alpha})`;ctx.fill();
-      if(s.shimmering&&s.alpha>s.baseAlpha+0.12){
-        const excess=s.alpha-s.baseAlpha-0.12;
-        const sp=s.r*(s.bright?4:3);
-        const sa=Math.min(excess*2,0.8);
-        ctx.strokeStyle=`rgba(245,240,255,${sa})`;ctx.lineWidth=s.bright?0.7:0.5;
-        ctx.beginPath();ctx.moveTo(s.x-sp,s.y);ctx.lineTo(s.x+sp,s.y);ctx.stroke();
-        ctx.beginPath();ctx.moveTo(s.x,s.y-sp);ctx.lineTo(s.x,s.y+sp);ctx.stroke();
-      }
-    });
-
-    giants.forEach(g=>{
-      g.twinkle+=g.twinkleSpeed;
-      g.alpha=g.baseAlpha+Math.sin(g.twinkle)*0.05;
-      drawGiant(g);
-    });
-
-    requestAnimationFrame(drawAboutStars);
-  }
-  drawAboutStars();
-
-  function getVisible(i){
-    if(i===0)return[0,1,2];
-    if(i===ITEMS.length-1)return[i-2,i-1,i];
-    return[i-1,i,i+1];
-  }
-
-  function render(active){
-    const visible=getVisible(active);
-    stage.innerHTML='';
-    visible.forEach(idx=>{
-      const item=ITEMS[idx];
-      const isActive=idx===active;
-      const bar=document.createElement('div');
-      bar.className='acbar'+(isActive?' active':' adj');
-      bar.dataset.i=idx;
-      bar.innerHTML=`<div class="acbar-num">${item.num}</div><div class="acbar-inner"><div class="acbar-eyebrow">${item.num} · ${item.label.toUpperCase()}</div><div class="acbar-title">${item.label}</div><div class="acbar-text">${item.text}</div></div>`;
-      bar.addEventListener('click',()=>setActive(idx));
-      stage.appendChild(bar);
-    });
-  }
-
-  function setActive(i){
-    current=i;
-    dots.forEach((d,idx)=>d.classList.toggle('active',idx===i));
-    render(i);
-  }
-
-  let wa=0,wt=null,wLast=0;
-  const aboutEl=document.getElementById('about');
-  aboutEl.addEventListener('wheel',e=>{
-    const rect=aboutEl.getBoundingClientRect();
-    const inView=rect.top<=10&&rect.bottom>=window.innerHeight-10;
-    if(!inView)return;
-    e.preventDefault();
-    wa+=e.deltaY;
-    const now=Date.now();
-    if(Math.abs(wa)>60&&now-wLast>350){
-      if(wa>0&&current<ITEMS.length-1){setActive(current+1);wLast=now;}
-      else if(wa<0&&current>0){setActive(current-1);wLast=now;}
-      wa=0;clearTimeout(wt);return;
+    function render(active){
+      const visible=getVisible(active);
+      stage.innerHTML='';
+      visible.forEach(idx=>{
+        const item=ITEMS[idx];
+        const isActive=idx===active;
+        const bar=document.createElement('div');
+        bar.className='acbar'+(isActive?' active':' adj');
+        bar.dataset.i=idx;
+        bar.innerHTML=`<div class="acbar-num">${item.num}</div><div class="acbar-inner"><div class="acbar-eyebrow">${item.num} · ${item.label.toUpperCase()}</div><div class="acbar-title">${item.label}</div><div class="acbar-text">${item.text}</div></div>`;
+        bar.addEventListener('click',()=>setActive(idx));
+        stage.appendChild(bar);
+      });
     }
-    clearTimeout(wt);
-    wt=setTimeout(()=>{
-      if(wa>20&&current<ITEMS.length-1&&Date.now()-wLast>350){setActive(current+1);wLast=Date.now();}
-      else if(wa<-20&&current>0&&Date.now()-wLast>350){setActive(current-1);wLast=Date.now();}
-      wa=0;
-    },60);
-  },{passive:false});
-  dots.forEach(d=>d.addEventListener('click',()=>setActive(+d.dataset.i)));
-  setActive(0);
-})();
+
+    function setActive(i){
+      current=i;
+      dots.forEach((d,idx)=>d.classList.toggle('active',idx===i));
+      render(i);
+    }
+
+    let wa=0,wt=null,wLast=0;
+    const aboutEl=document.getElementById('about');
+    aboutEl.addEventListener('wheel',e=>{
+      const rect=aboutEl.getBoundingClientRect();
+      const inView=rect.top<=10&&rect.bottom>=window.innerHeight-10;
+      if(!inView)return;
+      e.preventDefault();
+      wa+=e.deltaY;
+      const now=Date.now();
+      if(Math.abs(wa)>60&&now-wLast>350){
+        if(wa>0&&current<ITEMS.length-1){setActive(current+1);wLast=now;}
+        else if(wa<0&&current>0){setActive(current-1);wLast=now;}
+        wa=0;clearTimeout(wt);return;
+      }
+      clearTimeout(wt);
+      wt=setTimeout(()=>{
+        if(wa>20&&current<ITEMS.length-1&&Date.now()-wLast>350){setActive(current+1);wLast=Date.now();}
+        else if(wa<-20&&current>0&&Date.now()-wLast>350){setActive(current-1);wLast=Date.now();}
+        wa=0;
+      },60);
+    },{passive:false});
+
+    dots.forEach(d=>d.addEventListener('click',()=>setActive(+d.dataset.i)));
+    setActive(0);
+  })();
   </script>
 </body>
 </html>
