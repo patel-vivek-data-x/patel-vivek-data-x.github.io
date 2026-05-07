@@ -42,7 +42,7 @@
     .works-grid{display:grid;grid-template-columns:1fr;gap:1.5rem}
 
     /* project cards — image-rendering crisp */
-    .work-card{position:relative;overflow:hidden;text-decoration:none;color:inherit;aspect-ratio:21/9;display:block;background:var(--bg3)}
+    .work-card{position:relative;overflow:hidden;text-decoration:none;color:inherit;aspect-ratio:3/2;display:block;background:var(--bg3)}
     .work-card img{width:100%;height:100%;object-fit:cover;display:block;image-rendering:-webkit-optimize-contrast;image-rendering:crisp-edges;transition:transform .8s cubic-bezier(0.25,0.46,0.45,0.94)}
     .work-card:hover img{transform:scale(1.06)}
     .work-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.75) 0%,rgba(0,0,0,0.1) 55%,transparent 100%)}
@@ -83,15 +83,57 @@
 
     #credentials{padding:6rem 3.5rem;border-top:1px solid var(--rim)}
     .cert-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:3rem}
-    .cert-card{position:relative;overflow:hidden;text-decoration:none;color:inherit;aspect-ratio:2/2;display:block;background:var(--bg3)}
-    .cert-card img{width:100%;height:100%;object-fit:contain;object-position:center top;display:block;background:var(--bg3);transition:transform .8s cubic-bezier(0.25,0.46,0.45,0.94)}
+    .cert-card{
+      position:relative;
+      text-decoration:none;color:inherit;
+      aspect-ratio:2/1.9;
+      border-radius:12px;
+      overflow:hidden;
+      display:flex;flex-direction:column;
+      background:linear-gradient(135deg,rgba(255,255,255,0.07) 0%,rgba(255,255,255,0.03) 50%,rgba(155,127,232,0.05) 100%);
+      backdrop-filter:blur(20px) saturate(180%);
+      -webkit-backdrop-filter:blur(20px) saturate(180%);
+      border:1px solid rgba(255,255,255,0.1);
+      box-shadow:0 8px 32px rgba(0,0,0,0.4),inset 0 1px 0 rgba(255,255,255,0.15);
+      transition:all .35s ease;
+    }
+    .cert-card:hover{
+      background:linear-gradient(135deg,rgba(255,255,255,0.1) 0%,rgba(255,255,255,0.05) 50%,rgba(155,127,232,0.08) 100%);
+      box-shadow:0 12px 40px rgba(155,127,232,0.15),inset 0 1px 0 rgba(255,255,255,0.2);
+      transform:translateY(-2px);
+    }
+    .cert-card::before{
+      content:'';position:absolute;
+      top:0;left:0;right:0;height:1px;
+      background:linear-gradient(90deg,transparent 0%,rgba(255,255,255,0.35) 30%,rgba(255,255,255,0.55) 50%,rgba(255,255,255,0.35) 70%,transparent 100%);
+      z-index:2;
+    }
+    .cert-card::after{
+      content:'';position:absolute;
+      bottom:0;left:0;right:0;height:4px;
+      background:linear-gradient(90deg,#7B5EC8,#9B7FE8,#7B5EC8);
+      z-index:3;
+    }
+    .cert-card img{
+      width:100%;flex:1;
+      object-fit:contain;object-position:center top;
+      display:block;
+      background:rgba(255,255,255,0.03);
+      transition:transform .8s cubic-bezier(0.25,0.46,0.45,0.94);
+    }
     .cert-card:hover img{transform:scale(1.03)}
-    .cert-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.72) 0%,rgba(0,0,0,0.0) 45%,transparent 100%)}
-    .cert-info{position:absolute;bottom:0;left:0;right:0;padding:1.8rem}
-    .cert-org{font-family:"DM Sans",sans-serif;font-size:.58rem;color:rgba(255,255,255,0.5);letter-spacing:.15em;text-transform:uppercase;margin-bottom:.4rem;font-weight:400}
-    .cert-name{font-family:"DM Sans",sans-serif;font-size:.95rem;font-weight:500;color:#fff;line-height:1.25;margin-bottom:.6rem}
+    .cert-overlay{display:none}
+    .cert-info{
+      position:relative;
+      padding:1.2rem 1.4rem 1.4rem;
+      border-top:1px solid rgba(255,255,255,0.08);
+      background:rgba(0,0,0,0.25);
+      flex-shrink:0;
+      z-index:1;
+    }
+    .cert-org{font-family:"DM Sans",sans-serif;font-size:.58rem;color:rgba(255,255,255,0.45);letter-spacing:.15em;text-transform:uppercase;margin-bottom:.4rem;font-weight:400}
+    .cert-name{font-family:"DM Sans",sans-serif;font-size:.88rem;font-weight:500;color:rgba(255,255,255,0.88);line-height:1.25;margin-bottom:.5rem}
     .cert-verify{font-family:"DM Sans",sans-serif;font-size:.6rem;color:rgba(155,127,232,0.85);letter-spacing:.06em;text-transform:uppercase;font-weight:400}
-    .cert-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:4px;background:var(--purple);z-index:2}
 
     #contact{padding:6rem 3.5rem;border-top:1px solid var(--rim)}
     .contact-heading{font-family:"DM Sans",sans-serif;font-size:clamp(1.8rem,4vw,3rem);font-weight:600;letter-spacing:-.02em;color:var(--ink);text-transform:uppercase;line-height:.9;margin-bottom:2.5rem;white-space:nowrap}
